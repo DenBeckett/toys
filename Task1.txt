@@ -1,0 +1,50 @@
+1. Используйте команды операционной системы Linux и создайте две новых директории – «Игрушки для школьников» и «Игрушки для дошколят»
+
+user@ubuntu:~$ mkdir toys_for_school
+user@ubuntu:~$ mkdir toys_for_kindergarden
+
+2. Создайте в директории «Игрушки для школьников» текстовые файлы - «Роботы», «Конструктор», «Настольные игры»
+
+user@ubuntu:~$ cd toys_for_school/
+user@ubuntu:~/toys_for_school$ touch robots
+user@ubuntu:~/toys_for_school$ touch constructor
+user@ubuntu:~/toys_for_school$ touch table_games
+user@ubuntu:~/toys_for_school$ cd..
+
+3. Создайте в директории «Игрушки для дошколят» текстовые файлы «Мягкие игрушки», «Куклы», «Машинки»
+
+user@ubuntu:~$ cd toys_for_kindergarden/
+user@ubuntu:~/toys_for_kindergarden$ touch pupets
+user@ubuntu:~/toys_for_kindergarden$ touch dolls
+user@ubuntu:~/toys_for_kindergarden$ touch cars
+
+4. Объединить 2 директории в одну «Имя Игрушки»
+
+user@ubuntu:~$ cp -ri toys_for_school/* toys_for_kindergarden/
+user@ubuntu:~$ rm -R toys_for_school/
+user@ubuntu:~$ mv toys_for_kindergarden toys_names
+
+5. Переименовать директорию «Имя Игрушки» в «Игрушки»
+
+user@ubuntu:~$ mv toys_names toys
+
+6. Просмотреть содержимое каталога «Игрушки».
+
+user@ubuntu:~$ cd toys
+user@ubuntu:~/toys$ ls
+cars  constructor  dolls  pupets  robots  table_games
+
+7. Установить и удалить snap-пакет. (Любой, какой хотите)
+
+user@ubuntu:~$ sudo snap install gimp
+[sudo] пароль для user: 
+gimp 2.10.30 от Snapcrafters установлен
+
+user@ubuntu:~$ snap remove gimp
+gimp удалён
+
+8. Добавить задачу для выполнения каждые 3 минуты (создание директории, запись в файл):
+crontab -e
+*/3 * * * * echo "Hello" >> /home/user/greetings
+
+каждые 3 минуты в файл greetings будет записываться новая строчка "Hello"
